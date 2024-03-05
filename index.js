@@ -8,7 +8,7 @@ const server = createServer(app);
 const errorHandler = require("./utils/errorHandler");
 require("dotenv").config();
 const startProductSocket = require("./utils/productSocket");
-const port = 5000;
+const port = process.env.PORT;
 const cron = require("cron");
 const updateExpiredProducts = require("./utils/updateExpiredProducts");
 app.use("/uploads", express.static("uploads"));
@@ -89,5 +89,5 @@ job.start();
 
 // Start the server and listen on the specified port
 server.listen(port, () => {
-  console.log("server running at http://localhost:5000");
+  console.log("Server is running");
 });
