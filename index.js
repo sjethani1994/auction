@@ -14,7 +14,8 @@ const updateExpiredProducts = require("./utils/updateExpiredProducts");
 app.use("/uploads", express.static("uploads"));
 const io = new SocketIOServer(server, {
   cors: {
-    origin: "http://localhost:3000",
+    // origin: "http://localhost:3000",
+    origin: "https://sm-auction.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -23,7 +24,9 @@ const io = new SocketIOServer(server, {
 // Middleware to enable CORS
 app.use(
   cors({
-    origin: "http://localhost:3000", // Replace with your React app's URL
+    // origin: "http://localhost:3000", // Replace with your React app's URL
+    origin: "https://sm-auction.vercel.app",
+    methods: ["GET", "POST"],
     credentials: true,
   })
 );
