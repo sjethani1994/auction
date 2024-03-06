@@ -41,7 +41,7 @@ const addProduct = async (req, res) => {
   try {
     const { title, description, category, seller, price, startDate, endDate } =
       req.body;
-    const imagePath = req.file.path; // Getting the path of the uploaded image
+    const imagePath = req.file.path.trim(); // Trimming the path of the uploaded image
     const newProduct = await ProductModel.create({
       title,
       description,
