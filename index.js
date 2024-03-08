@@ -5,13 +5,15 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const server = createServer(app);
+const path = require('path');
 const errorHandler = require("./utils/errorHandler");
 require("dotenv").config();
 const startProductSocket = require("./utils/productSocket");
-const port = process.env.PORT;
+const port = 5000;
 const cron = require("cron");
 const updateExpiredProducts = require("./utils/updateExpiredProducts");
-app.use("/uploads", express.static("uploads"));
+// app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 const io = new SocketIOServer(server, {
   cors: {
     // origin: "http://localhost:3000",
